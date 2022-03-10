@@ -1,2 +1,1 @@
-#ClientID 28ef188b46d14e2585c1431745641d6c
-#Client Secret 1be35d0fac034ace9f336ce3ec8601d8
+
