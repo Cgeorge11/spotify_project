@@ -3,7 +3,8 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from spotipy.oauth2 import SpotifyOAuth 
 import pandas as pd
 import requests
-from Secrets import *
+
+from  Spotify_Secrets import *
 
 # Spotify App credentials 
 cid = app_id
