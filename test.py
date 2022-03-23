@@ -19,19 +19,114 @@ spot = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
 #Authorization from user to access profile specific information
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=cid,
     client_secret=secret,
-    redirect_uri="http://localhost:8080",
-    scope="user-library-read"))
+    redirect_uri='http://localhost:8080',
+    scope='user-library-read'))
+
 
 
 # Get Spotify catalog information about albums, artists, tracks that match keyword string
-def search_artist ():
-    pass 
-
-def search_track():
+def search_artist_uri():
     pass
 
+def search_artist_name():
+
+    prompt0 = input('Enter a artist: ')
+    response = 'artist:'+ prompt0
+
+    #artist_name = []
+    popularity = []
+    artist_id = []
+    artist_genres =[]
+    for i in range(0,10,10):
+        track_results = spot.search(q=response, type='artist', limit=5,offset=i)
+        for i, t in enumerate(track_results['artists']['items']):
+            #artist_name.append(t['artists'][0]['name'])
+            #track_name.append(t['name'])
+            artist_id.append(t['id'])
+            popularity.append(t['popularity'])
+            artist_genres.append(t['genres'])
+
+    track_dataframe = pd.DataFrame({ 'artist_id' : artist_id,'artist_genres':artist_genres, 'popularity' : popularity})
+    print(track_dataframe)
+    track_dataframe.head()
+#search_artist_name()
+    
+def search_track():
+
+    prompt1 = input('Enter a track: ')
+    response = 'track:'+ prompt1
+
+    artist_name = []
+    track_name = []
+    track_id = []
+    popularity = []
+    
+    for i in range(0,10,10):
+        track_results = spot.search(q=response, type='track', limit=5,offset=i)
+        for i, t in enumerate(track_results['tracks']['items']):
+            artist_name.append(t['artists'][0]['name'])
+            track_name.append(t['name'])
+            track_id.append(t['id'])
+            popularity.append(t['popularity'])
+
+    track_dataframe = pd.DataFrame({'artist_name' : artist_name, 'track_name' : track_name, 'track_id' : track_id, 'popularity' : popularity})
+    print(track_dataframe)
+    track_dataframe.head()
+    
+#search_track()
+
 def search_albums():
-    pass 
+    prompt2 = input('Enter a Album: ')
+    response = 'album:'+ prompt2
 
+    artist_name = []
+    album_name = []
+    album_id = []
+    artist_genres=[]
 
-print('wow') 
+    for i in range(0,10,10):
+        track_results = spot.search(q=response, type='album', limit=5,offset=i)
+        for i, t in enumerate(track_results['albums']['items']):
+            artist_name.append(t['artists'][0]['name'])
+            album_name.append(t['name'])
+            album_id.append(t['id'])
+            artist_genres.append(t['genres'])
+            #popularity.append(t['popularity'])
+
+    track_dataframe = pd.DataFrame({'artist_name' : artist_name, 'album_name' : album_name, 'album_id' : album_id})
+    print(track_dataframe)
+    track_dataframe.head()
+#search_albums()
+
+def start_menu():
+    print('What do you want to search? ')
+    print()
+    options= input("""Select enter the letter that corresponds with your choice.  
+    A) Artists 
+    B) Tracks
+    C) Albums
+    Enter Selection: """) 
+    if options == 'A' or options =='a':
+        search_artist_name()
+    elif options == 'B' or options =='b':
+        search_track()
+    elif options=='C' or options=='c':
+        search_albums()
+    else:
+        print('Oops. invalid entry. Enter a corresponding letter ')
+        print('Please try again')
+        start_menu() #Send user bake to menu options    
+start_menu()    
+
+def end():
+    return_menu= input('Do want to search something else (yes/no): ') 
+    try:
+        if return_menu == 'yes' or return_menu =='Yes':
+            start_menu()
+        elif return_menu == 'No' or return_menu =='no':
+            print('BYE BYE')
+    except:
+        print('invalid entry. Try again') 
+        start_menu()
+end()
+
