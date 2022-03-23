@@ -25,6 +25,8 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=cid,
 # Get Spotify catalog information about albums, artists, tracks that match keyword string
 def search_artist_uri():
     pass
+def unfollow_artist():
+    pass
 
 def search_artist_name():
 

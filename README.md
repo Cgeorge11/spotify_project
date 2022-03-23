@@ -8,8 +8,8 @@ To run program user will need to install [spotipy libary](https://spotipy.readth
 **Category 1** 
 
 **Category 2** 
-
+Connecting to [spotify API ](https://developer.spotify.com/documentation/web-api/reference/#/operations/search). This program is currently using Spotify Client Credentials code flow but has the set up to access Authorization Code Flow for get user authorization for future development. 
 **Category 3** 
-
+Data is returned in a table using pandas. 
 **Category 4** 
 
