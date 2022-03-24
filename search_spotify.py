@@ -101,10 +101,11 @@ def search_albums():
 def start_menu():
     print('What do you want to search? ')
     print()
-    options= input("""Select enter the letter that corresponds with your choice.  
+    options= input("""Enter the letter that corresponds with your choice.  
     A) Artists 
     B) Tracks
     C) Albums
+    D) Quit
     Enter Selection: """) 
     if options == 'A' or options =='a':
         search_artist_name()
@@ -112,7 +113,10 @@ def start_menu():
         search_track()
     elif options=='C' or options=='c':
         search_albums()
+    elif options=='D' or options=='d':
+        quit()
     else:
+
         print('Oops. invalid entry. Enter a corresponding letter ')
         print('Please try again')
         start_menu() #Send user bake to menu options    
@@ -125,6 +129,8 @@ def end():
             start_menu()
         elif return_menu == 'No' or return_menu =='no':
             print('BYE BYE')
+        else:
+            raise
     except:
         print('invalid entry. Try again.') 
         start_menu()
