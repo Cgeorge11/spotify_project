@@ -1,7 +1,11 @@
+import datetime
+from typing_extensions import Self
 from  Spotify_Secrets import *
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials 
 from spotipy.oauth2 import SpotifyOAuth 
+from datetime import datetime as dt 
+import datetime 
 import pandas as pd
 
 
@@ -20,13 +24,19 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=cid,
     redirect_uri='http://localhost:8080',
     scope='user-library-read'))
 
+artist_name = []
+album_name = []
+album_id = []
+album_release=[]
+years_old = []
+
 
 
 # Get Spotify catalog information about albums, artists, tracks that match keyword string
-def search_artist_uri():
-    pass
-def unfollow_artist():
-    pass
+# def search_artist_uri():
+#     pass
+# def unfollow_artist():
+#     pass
 
 def search_artist_name():
 
@@ -74,29 +84,50 @@ def search_track():
     track_dataframe.head()
     
 #search_track()
-
+ # artist_name = []
+   
 def search_albums():
-    prompt2 = input('Enter a Album: ')
-    response = 'album:'+ prompt2
+        prompt2 = input('Enter a Album: ')
+        response = 'album:'+ prompt2
+    # album_name = []
+    # album_id = []
+    # album_release=[]
 
-    artist_name = []
-    album_name = []
-    album_id = []
-    album_release=[]
-
-    for i in range(0,10,10):
-        track_results = spot.search(q=response, type='album', limit=5,offset=i)
-        for i, t in enumerate(track_results['albums']['items']):
-            artist_name.append(t['artists'][0]['name'])
-            album_name.append(t['name'])
-            album_id.append(t['id'])
-            album_release.append(t['release_date'])
+   
+        for i in range(0,10,10):
+            track_results = spot.search(q=response, type='album', limit=5,offset=i)
+            for i, t in enumerate(track_results['albums']['items']):
+                artist_name.append(t['artists'][0]['name'])
+                album_name.append(t['name'])
+                album_id.append(t['id'])
+                album_release.append(t['release_date'])
             #popularity.append(t['popularity'])
+    
+        # track_dataframe = pd.DataFrame({'artist_name' : artist_name, 'album_name' : album_name, 'album_id' : album_id, 'album_release':album_release})
+        # print(track_dataframe)
+        # track_dataframe.head()
+    #return artist_name,album_name,album_id,album_id,album_release
+#search_albums() 
+  
 
-    track_dataframe = pd.DataFrame({'artist_name' : artist_name, 'album_name' : album_name, 'album_id' : album_id, 'album_release':album_release})
-    print(track_dataframe)
-    track_dataframe.head()
-#search_albums()
+def album_age( ):
+    datetime_object= [dt.strptime(date, "%Y-%m-%d").date() for date in album_release]
+    today = datetime.date.today()
+    for date in datetime_object:
+            #print(date)
+        age= today.year - date.year
+     
+            #print(age)
+            
+
+        years_old.append(age )
+    
+    album_dataframe = pd.DataFrame({'artist_name' : artist_name, 'album_name' : album_name, 'album_id' : album_id,'album_release':album_release,'years_old':years_old})
+    print(album_dataframe)
+    album_dataframe.head()
+    
+#album_age() 
+
 
 def start_menu():
     print('What do you want to search? ')
@@ -113,6 +144,7 @@ def start_menu():
         search_track()
     elif options=='C' or options=='c':
         search_albums()
+        album_age()
     elif options=='D' or options=='d':
         quit()
     else:
@@ -136,3 +168,4 @@ def end():
         start_menu()
 end()
 
+print('wow')

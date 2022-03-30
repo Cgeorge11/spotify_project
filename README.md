@@ -3,7 +3,7 @@ This program will allow the user to select the type of item they would like to s
 
 ## Running program 
 To run program user will need to install [spotipy libary](https://spotipy.readthedocs.io/en/2.19.0/#installation). Run search_spotify.py from command line. 
-
+Don't know what this does but you're going to need it pip install typing-extensions
 ## Requirement 
 **Category 1** 
 
