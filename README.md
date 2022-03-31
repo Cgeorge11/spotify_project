@@ -10,7 +10,7 @@ Once you download this repo you will be able to start program from command line 
 
 
 Run search_spotify.py from command line. 
-Don't know what this does but you're going to need it pip install typing-extensions
+
 ## Feature Requirement 
 **Category 1** 
 
