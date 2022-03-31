@@ -9,7 +9,7 @@ To run program from command prompt user will need to install [spotipy libary](ht
 
 `pip install pandas`
 
-You will also need to sign into [sign/create](https://developer.spotify.com/dashboard/) Spotify account to create an App in the developer link. Once you are signed into your developer dashboard you will need to create an App. From your APP you created get your Client ID and Client Secret. Use your App credentials to fill the variables in spotify_secrets.py. Click [here](https://developer.spotify.com/documentation/web-api/quick-start/) for more about setting up Spotify APP in developer dashboard. 
+You will also need to [sign/create](https://developer.spotify.com/dashboard/) a Spotify account to create an App in the developer link. Once you are signed into your developer dashboard you will need to create an App. From your APP you created get your Client ID and Client Secret. Use your App credentials to fill the variables in spotify_secrets.py. Click [here](https://developer.spotify.com/documentation/web-api/quick-start/) for more about setting up Spotify APP in developer dashboard. 
 
 
 Once you download this repo you will be able to start program from command line using [script file name](https://realpython.com/run-python-scripts/#using-the-script-filename) by running search_spotify.py location from command line. 
