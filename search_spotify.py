@@ -6,6 +6,7 @@ from spotipy.oauth2 import SpotifyOAuth
 from datetime import datetime as dt 
 import datetime 
 import pandas as pd
+from generate_logging import *
 
 
 # Spotify App credentials
@@ -36,6 +37,7 @@ artist_id = []
 
 
 def search_artist_name():# Get Spotify catalog information about albums, artists, tracks that match keyword string
+    clear_arrays()
     prompt0 = input('Enter a artist name: ')
     response = 'artist:'+ prompt0
     for i in range(0,10,10):
@@ -53,6 +55,7 @@ def search_artist_name():# Get Spotify catalog information about albums, artists
 
 
 def search_track_name():
+    clear_arrays()
     prompt1 = input('Enter a track: ')
     response = 'track:'+ prompt1
     for i in range(0,10,10):
@@ -70,6 +73,7 @@ def search_track_name():
 
 
 def search_album_name():
+    clear_arrays()
     prompt2 = input('Enter a Album: ')
     response = 'album:'+ prompt2
     for i in range(0,10,10):
@@ -102,29 +106,17 @@ def album_age( ):
 #album_age() 
 
 
-def start_menu():    
-    print('What do you want to search? ')
-    print()
-    ep_options= input("""Enter the letter that corresponds with your choice.  
-                         A) Artists 
-                         B) Tracks
-                         C) Albums
-                         D) Quit
-                         Enter Selection: """) 
-                         
-    if ep_options == 'A' or ep_options =='a':
-        search_artist_name()
-    elif ep_options == 'B' or ep_options =='b':
-        search_track_name()
-    elif ep_options=='C' or ep_options=='c':
-        search_album_name()
-        album_age()
-    elif ep_options=='D' or ep_options=='d':
-        quit()
-    else:
-        print('Oops,Please try again. invalid entry. Enter a corresponding letter to begin search ')
-        print()
-        start_menu() #Send user back to menu options   
+def clear_arrays():
+    artist_name.clear()
+    album_name.clear()
+    album_id.clear()
+    album_release.clear()
+    years_old.clear()
+    track_name.clear()
+    track_id.clear()
+    popularity.clear()
+    artist_genres.clear()
+    artist_id.clear()
 
 
 def end():
@@ -132,21 +124,46 @@ def end():
     try:
         if return_menu == 'yes' or return_menu =='Yes':
             start_menu()
+            clear_arrays()
         elif return_menu == 'No' or return_menu =='no':
             print('BYE BYE')
+            quit()
         else:
             raise
     except:
         print('invalid entry. Try again.') 
         start_menu()
-end()
+#end()
 
+def start_menu():    
+    print('What do you want to search? ')
+    print()
+    ep_options= input("""Enter the letter that corresponds with your choice.  
+    A) Artists 
+    B) Tracks
+    C) Albums
+    D) Quit
+    Enter Selection: """) 
+                         
+    if ep_options == 'A' or ep_options =='a':
+        search_artist_name()
+        end()
+    elif ep_options == 'B' or ep_options =='b':
+        search_track_name()
+        end()
+    elif ep_options=='C' or ep_options=='c':
+        search_album_name()
+        album_age()
+        end()
+    elif ep_options=='D' or ep_options=='d':
+        quit()
+    elif ep_options:
+        print('Oops,Please try again. invalid entry. Enter a corresponding letter to begin search ')
+        print()
+        start_menu() #Send user back to menu options   
+    else:
+        quit()
+start_menu()
 
-# def loop():
-#     while True:
-#         start_menu()
-#         break 
-    
-# loop()
 
 print('hit the bottom of program')
