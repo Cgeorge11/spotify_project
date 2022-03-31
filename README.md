@@ -2,9 +2,11 @@
 This program will allow the user to select the type of item they would like to search for within Spotify. Depending on the users selection they will be returned a table with data related to the users search. This README was written assuming you already know the basics for running a python. If this is your first time running a a Python script start [here](https://realpython.com/run-python-scripts/#using-the-python-command). Then come back. 
 
 ## Running program 
-This project was built using Python 3.10.1. To run program from command prompt user will need to install [spotipy libary](https://spotipy.readthedocs.io/en/2.19.0/#installation). 
+This project was built using Python 3.10.1. To run program from command prompt user will need to install [spotipy libary](https://spotipy.readthedocs.io/en/2.19.0/#installation), Pandas. 
 
 `pip install spotipy --upgrade`
+
+`pip install pandas`
 
 Once you download this repo you will be able to start program from command line using [script file name](https://realpython.com/run-python-scripts/#using-the-script-filename). 
 
