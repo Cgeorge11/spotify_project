@@ -4,6 +4,7 @@ This program will allow the user to select the type of item they would like to s
 ## Running program 
 This project was built using Python 3.10.1.
 To run program from command prompt user will need to install [spotipy libary](https://spotipy.readthedocs.io/en/2.19.0/#installation),and  Pandas. 
+
 `pip install spotipy --upgrade`
 
 `pip install pandas`
@@ -27,7 +28,7 @@ Connecting to [spotify API ](https://developer.spotify.com/documentation/web-api
 Program uses `pandas.Dataframe()` to structure returned data in a table.
 
 
-![Table example](images\Example_table_output.JPG) 
+![Table example](https://github.com/Cgeorge11/spotify_project/blob/main/images/Example_table_output.JPG) 
 
 **Category 4** 
 
