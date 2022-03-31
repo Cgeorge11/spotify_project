@@ -1,5 +1,5 @@
 import datetime
-from  Spotify_Secrets import * #Getting client credentials that are being hidden from user 
+from spotify_secrets_incomplete import * #Getting client credentials that are being hidden from user 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials 
 from spotipy.oauth2 import SpotifyOAuth 
