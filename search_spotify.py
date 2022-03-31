@@ -132,7 +132,7 @@ def end():
             raise
     except:
         print('invalid entry. Try again.') 
-        start_menu()
+        #start_menu()
 #end()
 
 def start_menu():    
