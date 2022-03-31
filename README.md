@@ -31,4 +31,4 @@ Program uses `pandas.Dataframe()` to structure returned data in a table.
 
 **Category 4** 
 
-https://realpython.com/python-pep8/
+For generate_logging.py  will generate a logging .txt file new_log_file.txt 
