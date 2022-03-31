@@ -2,7 +2,7 @@
 import logging
 #from search_spotify import * 
 # Create and configure logger
-logging.basicConfig(filename="newfile.txt",
+logging.basicConfig(filename="new_log_file.txt",
                     format='%(asctime)s %(message)s',
                     filemode='w')
  
