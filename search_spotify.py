@@ -92,14 +92,18 @@ def search_album_name():
 
 
 def album_age( ):
-    datetime_object= [dt.strptime(date, "%Y-%m-%d").date() for date in album_release] #album_release array is populated through the search_album_name function 
-    today = datetime.date.today()
-    for date in datetime_object:
-        #print(date)
-        age= today.year - date.year 
-        #print(age)
-        years_old.append(age )
-    
+    try:
+        datetime_object= [dt.strptime(date, "%Y-%m-%d").date() for date in album_release] #album_release array is populated through the search_album_name function 
+        today = datetime.date.today()
+        for date in datetime_object:
+            #print(date)
+            age= today.year - date.year 
+            #print(age)
+            years_old.append(age )
+    except:
+        print("And I oop. You've found a bug." )
+        end()
+   
     album_dataframe = pd.DataFrame({'artist_name' : artist_name, 'album_name' : album_name, 'album_id' : album_id,'album_release':album_release,'years_old':years_old})
     print(album_dataframe)
     album_dataframe.head()    
@@ -121,18 +125,16 @@ def clear_arrays():
 
 def end():
     return_menu= input('Do want to search something else (yes/no): ') 
-    try:
-        if return_menu == 'yes' or return_menu =='Yes':
-            start_menu()
-            clear_arrays()
-        elif return_menu == 'No' or return_menu =='no':
-            print('BYE BYE')
-            quit()
-        else:
-            raise
-    except:
+    
+    if return_menu == 'yes' or return_menu =='Yes':
+        start_menu()
+        clear_arrays()
+    elif return_menu == 'No' or return_menu =='no':
+        print('BYE BYE')
+        quit()
+    else:
         print('invalid entry. Try again.') 
-        #start_menu()
+        end()
 #end()
 
 def start_menu():    

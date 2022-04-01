@@ -4,6 +4,8 @@ This program will allow the user to select the type of item they would like to s
 ## Running program 
 This project was built using Python 3.10.1.
 To run program from command prompt user will need to install [spotipy libary](https://spotipy.readthedocs.io/en/2.19.0/#installation),and  Pandas. 
+
+
 `pip install spotipy --upgrade`
 
 `pip install pandas`
