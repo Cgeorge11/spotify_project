@@ -9,27 +9,30 @@ To run program from command prompt user will need to install [spotipy libary](ht
 
 `pip install pandas`
 
-You will also need to [sign/create](https://developer.spotify.com/dashboard/) a Spotify account to create an App in the developer link. Once you are signed into your developer dashboard you will need to create an App. From your APP you created get your Client ID and Client Secret. Use your App credentials to fill the variables in spotify_secrets_incomplete.py. Click [here](https://developer.spotify.com/documentation/web-api/quick-start/) for more about setting up Spotify APP in developer dashboard. 
+You will also need to [sign/create](https://developer.spotify.com/dashboard/) a Spotify account to create an App in the developer link. Once you are signed into your developer dashboard you will need to create an App. From your APP you created get your Client ID and Client Secret. Use your App credentials to fill the variables in *spotify_secrets_incomplete.py*. Click [here](https://developer.spotify.com/documentation/web-api/quick-start/) for more about setting up Spotify APP in developer dashboard. 
 
 
 Once you download this repo you will be able to start program from command line using [script file name](https://realpython.com/run-python-scripts/#using-the-script-filename) by running search_spotify.py location from command line. 
 
-## Feature Requirement 
-**Category 1** 
+## Feature Requirement
+
+This program follows the guidelines given in [Data Analysis Course 1 Project Requirements](https://docs.google.com/document/d/1iRALTv6OUPrtglHETLx_M3UIvnawNSu6vXbHOIMh6_w/edit#heading=h.xura3332t0u8). Below I have picked a feature within my program that meets one of the requirmets listed for each category described in the project requirments document
+
+### Category 1 ###
 
 `def album_age( )` use the `album_release = []` array that is appended in def `search_album_name()` with the album release dates. Then it subtracts that date from the current date using datetime module to return  `age` in year. 
 
-**Category 2** 
+### Category 2 ### 
 
 Connecting to [spotify API ](https://developer.spotify.com/documentation/web-api/reference/#/operations/search). This program is currently using Spotify Client Credentials code flow but has the set up to access Authorization Code Flow for get user authorization for future development. 
 
-**Category 3** 
+### Category 3 ### 
 
 Program uses `pandas.Dataframe()` to structure returned data in a table.
 
 
 ![Table example](https://github.com/Cgeorge11/spotify_project/blob/main/images/Example_table_output.JPG) 
 
-**Category 4** 
+### Category 4 ### 
 
 For generate_logging.py  will generate a logging .txt file new_log_file.txt 
